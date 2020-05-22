@@ -7,6 +7,7 @@ namespace TestAPI.Interfaces
 {
     public interface IRepo
     {
+        public string RepoName { get; }
         public string GetName();
     }
 }

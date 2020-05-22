@@ -8,6 +8,8 @@ namespace TestAPI.Services
 {
     public class NameServiceA : IRepo
     {
+        public string RepoName => "NameServiceA";
+
         public string GetName()
         {
             return "NameA";
