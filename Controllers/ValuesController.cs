@@ -23,9 +23,9 @@ namespace TestAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<string> Get()
+        public async Task<string> Get([FromQuery] string serviceName)
         {
-            var repo = _repos.Where(r => r.GetType() == typeof(NameServiceA)).First();
+            var repo = _repos.Where(r => r.RepoName.Contains( serviceName )).First();
             var name = repo.GetName();
             return name;
         }
