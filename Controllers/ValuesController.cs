@@ -40,7 +40,7 @@ namespace TestAPI.Controllers
 
         [HttpPost]
         [Route("{Trigger}")]
-        public async Task<string> GetService([FromQuery] string serviceName){
+        public async Task<string> TriggerService([FromQuery] string serviceName){
             var repo = _repos.Where(r => r.RepoName.Contains( serviceName )).First();
             var name = $"{repo.GetName()} + {repo.GetType().ToString()}";
             return name;
