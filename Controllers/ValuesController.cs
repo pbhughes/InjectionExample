@@ -29,5 +29,21 @@ namespace TestAPI.Controllers
             var name = repo.GetName();
             return name;
         }
+
+        [HttpGet]
+        [Route("{Service}")]
+        public async Task<string> GetService([FromQuery] string serviceName){
+            var repo = _repos.Where(r => r.RepoName.Contains( serviceName )).First();
+            var name = $"{repo.GetName()} + {repo.GetType().ToString()}";
+            return name;
+        }
+
+        [HttpPost]
+        [Route("{Trigger}")]
+        public async Task<string> GetService([FromQuery] string serviceName){
+            var repo = _repos.Where(r => r.RepoName.Contains( serviceName )).First();
+            var name = $"{repo.GetName()} + {repo.GetType().ToString()}";
+            return name;
+        }
     }
 }
